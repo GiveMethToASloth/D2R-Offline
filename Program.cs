@@ -14,6 +14,7 @@ namespace D2ROffline
         {
             string version = "v2.0.5-beta";
             string d2rPath = "Game.exe";
+            Int32 crashDelay = 25;
 
             // NOTE: if you are going to copy & modify this then please atleast write my name correct!
             PrintASCIIArt(); // 'colored' logo
@@ -43,6 +44,24 @@ namespace D2ROffline
                     ConsolePrint("Press any key to exit...", ConsoleColor.Yellow);
                     Console.ReadKey();
                     return;
+                }
+                else if (args[0].Equals("-Delay", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    try
+                    {
+                        crashDelay = Int32.Parse(args[1]);
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Bad argument for -Delay");
+                    }
+
+                    // if user is setting a custom delay value and specifying game.exe path
+                    if (args.Length > 2)
+                    {
+                        d2rPath = args[2];
+                    }
+                    
                 }
                 else
                     d2rPath = args[0];
@@ -81,6 +100,9 @@ namespace D2ROffline
             
             // pre setup
             WaitForData(hProcess, d2r.MainModule.BaseAddress, 0x22D8858);
+
+            // delay to help prevent crashes
+            Thread.Sleep(crashDelay);
 
             if (hProcess == IntPtr.Zero)
             {
