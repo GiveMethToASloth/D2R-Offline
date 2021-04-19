@@ -38,6 +38,13 @@ namespace D2ROffline
                     Console.ReadKey();
                     return;
                 }
+                else if (args[0].Equals("-UpdateKeyBinds", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    KeyBindingSync.SyncKeyBindings(args.ElementAtOrDefault(1));
+                    ConsolePrint("Press any key to exit...", ConsoleColor.Yellow);
+                    Console.ReadKey();
+                    return;
+                }
                 else if (args[0].Equals("-Delay", StringComparison.InvariantCultureIgnoreCase))
                 {
                     try
