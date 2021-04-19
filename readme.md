@@ -7,12 +7,10 @@ More information about the crc32 bypassing and remapping can be found in my '[By
 ![diablo 2 resurrected screenshot](https://github.com/ferib/D2R-Offline/blob/master/img/weird_group_flex.jpg?raw=true)
 
 # Setup
+## Installation
 
-1. You will need the Diablo II: Resurrected game files, you can use this tool to download them:  
-https://github.com/barncastle/Battle.Net-Installer/releases/tag/v1.3  
-Run this with arguments: `.\BNetInstaller.exe --prod osib --uid osi_beta --lang enus --dir "C:\D2R"`  
-You can change the install location `"C:\D2R"` if you would like.  
-Try running `Game.exe` to verify you're ready for the next steps, it should load into the main menu, but won't allow you to play the game.
+
+1. You will need the Diablo II: Resurrected game files.
 
 1. You will need .NET Framework v4.7.2, which you can download at:  
 https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net472-web-installer
@@ -21,13 +19,15 @@ https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net472-web-inst
 https://github.com/ferib/D2R-Offline/releases  
 Unzip and copy **both** `D2ROffline.exe` and `patches.txt` to your Diablo II: Resurrected game folder. They should be in the same directory as `Game.exe`.
 
-1. Double-click `D2ROffline.exe` to start the tool.  
-Please see the FAQ below if you have any issues.
+## Run
 
-# Frequently Asked Questions
+1. Double-click `D2ROffline.exe` to start the tool.
 
-**Q**: Why can't I resume playing a previously created character?  
-**A**: Once you quit the game after creating a new character, you will need to use the TCP\IP button and host a game with that character. Alternatively, you can use the -FixLocalSave argument with `D2ROffline.exe` to adjust your save files to allow offline play, see the Usage section below.
+1. A cmd window should open and begin the patching process, then prompt you to hit any key to continue, then the game should open. You can then close the cmd window.
+
+1. When loading a character, use the TCP/IP button and host a game, double clicking the character name or clicking Play will not work by default. See the `-FixLocalSave` argument under [Usage](#Usage) if you would like to edit your saves to work in offline mode.
+
+## Please see the [FAQ](FAQ.md) if you have any issues.
 
 # Usage
 
