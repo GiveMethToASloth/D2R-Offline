@@ -6,17 +6,45 @@ More information about the crc32 bypassing and remapping can be found in my '[By
 
 ![diablo 2 resurrected screenshot](https://github.com/ferib/D2R-Offline/blob/master/img/weird_group_flex.jpg?raw=true)
 
+# Setup
+
+1. You will need the Diablo II: Resurrected game files, you can use this tool to download them:  
+https://github.com/barncastle/Battle.Net-Installer/releases/tag/v1.3  
+Run this with arguments: `.\BNetInstaller.exe --prod osib --uid osi_beta --lang enus --dir "C:\D2R"`  
+You can change the install location `"C:\D2R"` if you would like.  
+Try running `Game.exe` to verify you're ready for the next steps, it should load into the main menu, but won't allow you to play the game.
+
+1. You will need .NET Framework v4.7.2, which you can download at:  
+https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net472-web-installer
+
+1. Download the latest release *(or clone the project and build it)* :  
+https://github.com/ferib/D2R-Offline/releases  
+Unzip and copy **both** `D2ROffline.exe` and `patches.txt` to your Diablo II: Resurrected game folder. They should be in the same directory as `Game.exe`.
+
+1. Double-click `D2ROffline.exe` to start the tool.  
+Please see the FAQ below if you have any issues.
+
+# Frequently Asked Questions
+
+**Q**: Why can't I resume playing a previously created character?  
+**A**: Once you quit the game after creating a new character, you will need to use the TCP\IP button and host a game with that character. Alternatively, you can use the -FixLocalSave argument with `D2ROffline.exe` to adjust your save files to allow offline play, see the Usage section below.
+
 # Usage
 
-.NET Framework v4.7.2 is required, which you can download at https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net472-web-installer
+## Arguments
+You can run `D2ROffline.exe` with arguments to solve some problems.
 
-Download the latest release *(or clone a project and build using Visual Studio)*
+### -FixLocalSave
+`.\D2ROffline.exe -FixLocalSave` This will update your save files to allow you to play your characters in single player mode instead of hosting a TCP/IP game. This argument will not also run the game, it just runs a one-off process.
 
-Copy **both** `D2ROffline.exe` and `patches.txt` to your Diablo 2 Resurrected game folder and then double-click `D2ROffline.exe` to start the tool.
+### -UpdateKeyBinds
+`.\D2ROffline.exe -UpdateKeyBinds` This will sync your keybindings between characters.
 
-That's about it!
+### -Delay \<delay in ms>
+`.\D2ROffline.exe -Delay 35` This will change the delay amount when patching your game, default is 25. Use this and try different values to help with crashes after being in-game for certain amounts of time.
 
-*NOTE: For those who want to add (or remove) patches, open the `patches.txt` and start modifying them.*
+### "Game.exe file path"
+`.\D2ROffline.exe "C:\D2R\Game.exe"` Use this to specify a path to Game.exe if you're not running `D2ROffline.exe` from the same directory.
 
 ## Custom Patches
 
@@ -72,10 +100,6 @@ Language patches to force the client into loading a language, thanks to Ferib (m
 Want to test out multiplayer mode? feel free to join my server at `ferib.dev` and come say hi!
 
 Also, feel free to [donate money](https://github.com/sponsors/ferib) in case you made it this far, this will keep me motivated to work on Diablo2Resurrected related projects and to keep the server going, thanks!
-
-## Download Game Files
-Download this project: https://github.com/barncastle/Battle.Net-Installer/releases/tag/v1.3
-Then use as `BNetInstaller.exe --prod osib --uid osi_beta --lang enus --dir "C:\D2R"`
 
 ## Notices
 This repository is for educational purposes only. 
